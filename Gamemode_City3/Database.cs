@@ -1,3 +1,10 @@
+// ============================================================
+// Project            :  City3
+// File               :  .\Common.cs
+// Created on         :  Tuesday, June 4, 2013 2:02 PM
+// Description        :  Database system
+// ============================================================
+
 function CityDB_saveUser(%client)
 {
 	%path = $City3::UserSaves @ %client.BL_ID @ ".dat";

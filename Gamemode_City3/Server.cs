@@ -1,10 +1,48 @@
-exec("./Commands.cs");
-exec("./Config.cs");
-exec("./Database.cs");
-exec("./Datablocks.cs");
-exec("./Packages.cs");
-exec("./ScriptObjects.cs");
+// ================================================================
+// Project            :  City3
+// File               :  .\Common.cs
+// Created on         :  Tuesday, June 4, 2013 2:02 PM
+// Description        :  Datblocks file
+// ================================================================= 
+
+// =================================================================
+// Main 
+// =================================================================
+
+exec("./Package.cs");
+exec("./ScriptObject.cs");
+exec("./Saving.cs");
+exec("./Labor.cs");
+exec("./Common.cs");
 exec("./Time.cs");
+exec("./Datablocks.cs");
+exec("./Config.cs");
+exec("./Commands.cs");
+
+// =================================================================
+// Bricks
+// =================================================================
+
+exec("./Bricks/Resources/Iron.cs");
+exec("./Bricks/Resources/Silver.cs");
+exec("./Bricks/Resources/Platinum.cs");
+exec("./Bricks/Resources/Oak.cs");
+exec("./Bricks/Resources/Maple.cs");
+exec("./Bricks/Resources/Morning.cs");
+
+// =================================================================
+// Tools
+// =================================================================
+
+exec("./Items/Tools/Pickaxe.cs");
+exec("./Items/Tools/Axe.cs");
+
+// =================================================================
+// Startup
+// =================================================================
+
+CityRPGStartup();
+
 
 function C3GetLineCount(%doc)
 {

@@ -46,12 +46,12 @@ function C3GetSpecificLine(%doc,%line)
 
 function C3GetRandomAlias(%client)
 {
-	%lineCtFirst = C3GetLineCount("Add-Ons/Gamemode_City3/City3/Data/FirstNames.txt");
-	%lineCtLast = C3GetLineCount("Add-Ons/Gamemode_City3/City3/Data/LastNames.txt");
+	%lineCtFirst = C3GetLineCount("Add-Ons/Gamemode_City3/Data/FirstNames.txt");
+	%lineCtLast = C3GetLineCount("Add-Ons/Gamemode_City3/Data/LastNames.txt");
 	%randomFirst = getRandom(0,%lineCtFirst);
 	%randomLast = getRandom(0,%lineCtLast);
-	%first = C3GetSpecificLine("Add-Ons/Gamemode_City3/City3/Data/FirstNames.txt",%randomFirst);
-	%last = C3GetSpecificLine("Add-Ons/Gamemode_City3/City3/Data/LastNames.txt",%randomLast);
+	%first = C3GetSpecificLine("Add-Ons/Gamemode_City3/Data/FirstNames.txt",%randomFirst);
+	%last = C3GetSpecificLine("Add-Ons/Gamemode_City3/Data/LastNames.txt",%randomLast);
 	%client.C3Alias_First = %first;
 	%client.C3Alias_Last = %last;
 	%client.C3SetAlias = 0;

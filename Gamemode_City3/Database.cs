@@ -10,7 +10,7 @@ function CityDB_saveUser(%client)
 	%file.writeLine(%client.name);
 	%file.writeLine(%client.lvd);
 	%file.writeLine(%client.C3Wallet.money);
-	%file.writeLine(%client.C3Wallet.bankm);
+	%file.writeLine(%client.C3Wallet.bank);
 
 	%file.writeLine(%client.C3Alias_First NL %client.C3Alias_Last);
 
@@ -37,7 +37,7 @@ function CityDB_loadUser(%client)
 	%file.readline(); %file.readLine(); %file.readLine();
 
 	%client.C3Wallet.money = %file.readline();
-	%client.C3Wallet.bankm = %file.readline();
+	%client.C3Wallet.bank = %file.readline();
 	%client.C3Alias_First = %file.readline();
 	%client.C3Alias_Last = %file.readline();
 

@@ -9,8 +9,8 @@ function C3Wallet::add(%this,%obj,%arg)
 	{
 		case "money":
 			%this.money += %arg;
-		case "bankm":
-			%this.bankm += %arg;
+		case "bank":
+			%this.bank += %arg;
 	}
 	%this.cashUpdated = 1;
 }
@@ -21,8 +21,8 @@ function C3Wallet::subtract(%this,%client,%obj,%arg)
 	{
 		case "money":
 			%this.money -= %arg;
-		case "bankm":
-			%this.bankm -= %arg;
+		case "bank":
+			%this.bank -= %arg;
 	}
 	%this.cashUpdated = 1;
 }
@@ -33,7 +33,7 @@ function C3Wallet::trade(%this,%client,%target,%obj,%task,%arg)
 	{
 		case "money":
 			%type = 1;
-		case "bankm":
+		case "bank":
 			%type = 2;
 	}
 
@@ -47,7 +47,7 @@ function C3Wallet::trade(%this,%client,%target,%obj,%task,%arg)
 			}
 			if(%type == 2)
 			{
-				%this.bankm -= %arg;
+				%this.bank -= %arg;
 				messageClient(%this.client, '', "\c2You have transfered $" @ %arg @ " to " @ %target.name @ ".");
 			}
 		case "recieve":
@@ -58,7 +58,7 @@ function C3Wallet::trade(%this,%client,%target,%obj,%task,%arg)
 			}
 			if(%type == 2)
 			{
-				%this.bankm += %arg;
+				%this.bank += %arg;
 				messageClient(%this.client, '', "\c2$" @ %arg @ " has been transferred to your account by " @ %target.name @ ".");
 			}
 	}

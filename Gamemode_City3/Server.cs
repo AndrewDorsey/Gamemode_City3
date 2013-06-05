@@ -41,7 +41,7 @@ exec("./Items/Tools/Axe.cs");
 // Startup
 // =================================================================
 
-CityRPGStartup();
+C3Startup();
 
 
 function C3GetLineCount(%doc)

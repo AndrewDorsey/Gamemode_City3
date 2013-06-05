@@ -11,8 +11,8 @@
 
 function fxDTSBrick::onMine(%this, %client)
 {
-if(%this.resources > 0)
-{
+	if(%this.resources > 0)
+	{
         %this.hasOre = true;
 				//Iron
         if(getRandom(1, 100) > 90 - %client.CityRPGData.value["PickaxeType"] * 3 && %this.getDataBlock().isIron)
@@ -157,6 +157,6 @@ if(%this.resources > 0)
                     %client.CityRPGData.value["MiningExp"] += 0.05;
                     %client.levelMining();
                     %client.setInfo();
-			}
-        }
+		}
+    }
 }

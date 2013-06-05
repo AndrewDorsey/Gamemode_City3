@@ -13,7 +13,7 @@ datablock fxDTSBrickData (OakTreeData : brickPineTreeData)
 	uiName = "Oak Tree";
 	
 	TreeType = 1;
-	strength = 1;
+	isTree = 1;
 	Wood = "32";
 	disappearLen = 60;
 	

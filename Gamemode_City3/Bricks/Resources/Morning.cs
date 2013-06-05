@@ -13,7 +13,7 @@ datablock fxDTSBrickData (MorningTreeData : brickPineTreeData)
 	uiName = "Morning Tree";
 	
 	TreeType = 3;
-	strength = 3;
+	isTree = 1;
 	Wood = "8";
 	disappearLen = 240;
 	

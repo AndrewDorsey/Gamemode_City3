@@ -13,7 +13,7 @@ datablock fxDTSBrickData (PlatinumOreData : brick4x4CubeData)
 	uiName = "Platinum Ore";
 	
 	oreType = 3;
-	strength = 3;
+	hasOre =1;
 	ore = "8";
 	disappearLen = 240;
 	

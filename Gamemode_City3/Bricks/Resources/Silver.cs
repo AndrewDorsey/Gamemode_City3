@@ -13,7 +13,7 @@ datablock fxDTSBrickData (SilverOreData : brick4x4CubeData)
 	uiName = "Silver Ore";
 	
 	oreType = 2;
-	strength = 2;
+	hasOre =1;
 	ore = "16";
 	disappearLen = 120;
 	

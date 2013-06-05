@@ -26,17 +26,17 @@ datablock ExplosionData(rpgAxeExplosion)
 
 datablock ItemData(rpgAxeItem : swordItem)
 {
-	shapeFile = "Add-ons/Server_CityRPG/Data/Shapes/Axe.dts";
+	shapeFile = "Add-ons/Gamemode_City3/Data/Shapes/Labor/Axe.dts";
 	uiName = "Axe";
 	doColorShift = true;
 	colorShiftColor = "0.471 0.471 0.471 1.000";
 
 	image = rpgAxeImage;
 	canDrop = true;
-	iconName = "./icon_rpgAxe";
+	iconName = "Add-ons/Gamemode_City3/Data/Images/Icons/Axe.dts";
 };
 
-AddDamageType("rpgAxe",   '<bitmap:add-ons/Server_CityRPG/Data/Images/CI/Axe.png> %1',    '%2 <bitmap:add-ons/Server_CityRPG/Data/Images/CI/Axe.png> %1',0.75,1);
+AddDamageType("rpgAxe",   '<bitmap:add-ons/Gamemode_City3/Data/Images/CI/CI_Axe> %1',    '%2 <bitmap:add-ons/Gamemode_City3/Data/Images/CI/CI_Axe> %1',0.75,1);
 
 datablock ProjectileData(rpgAxeProjectile)
 {
@@ -67,7 +67,7 @@ datablock ProjectileData(rpgAxeProjectile)
 
 datablock ShapeBaseImageData(rpgAxeImage)
 {
-   shapeFile = "Add-ons/Server_CityRPG/Data/Shapes/Axe.dts";
+   shapeFile = "Add-ons/Gamemode_City3/Data/Shapes/Labor/Axe.dts";
    emap = true;
 
    mountPoint = 0;

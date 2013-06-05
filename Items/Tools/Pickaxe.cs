@@ -26,17 +26,17 @@ datablock ExplosionData(rpgPickaxeExplosion)
 
 datablock ItemData(rpgPickaxeItem : swordItem)
 {
-	shapeFile = "Add-ons/Server_CityRPG/Data/Shapes/Pickaxe.dts";
+	shapeFile = "Add-ons/Gamemode_City3/Data/Shapes/Labor/Pickaxe.dts";
 	uiName = "Pickaxe";
 	doColorShift = true;
 	colorShiftColor = "0.471 0.471 0.471 1.000";
 
 	image = rpgPickaxeImage;
 	canDrop = true;
-	iconName = "./icon_rpgPickaxe";
+	iconName = "Add-ons/Gamemode_City3/Data/Images/Icons/Pickaxe.png";
 };
 
-AddDamageType("rpgPickaxe",   '<bitmap:Add-ons/Server_CityRPG/Data/Images/CI/Pickaxe.png> %1',    '%2 <bitmap:Add-ons/Server_CityRPG/Data/Images/CI/Pickaxe.png> %1',0.75,1);
+AddDamageType("rpgPickaxe",   '<bitmap:Add-ons/Gamemode_City3/Data/Images/CI/CI_Pickaxe> %1',    '%2 <bitmap:Add-ons/Gamemode_City3/Data/Images/CI/CI_Pickaxe> %1',0.75,1);
 
 datablock ProjectileData(rpgPickaxeProjectile)
 {
@@ -67,7 +67,7 @@ datablock ProjectileData(rpgPickaxeProjectile)
 
 datablock ShapeBaseImageData(rpgPickaxeImage)
 {
-   shapeFile = "Add-ons/Server_CityRPG/Data/Shapes/Pickaxe.dts";
+   shapeFile = "Add-ons/Gamemode_City3/Data/Shapes/Labor/Pickaxe.dts";
    emap = true;
 
    mountPoint = 0;

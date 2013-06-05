@@ -36,6 +36,7 @@ exec("./Bricks/Resources/Morning.cs");
 
 exec("./Items/Tools/Pickaxe.cs");
 exec("./Items/Tools/Axe.cs");
+exec("./Items/Tools/Tazer.cs");
 
 // =================================================================
 // Startup

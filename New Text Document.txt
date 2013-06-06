@@ -28,12 +28,13 @@ function fxDTSBrick::onMine(%this, %client)
 						commandToClient(%client, 'centerPrint', "\c1You need a pick level of \c4" @ %preq @ "\c1to mine this, bitch.");
 					else if(!%this.resources)
 					{
-						commandToClient(%client, 'centerPrint', "This rock has no more fucking ore left.");
+						commandToClient(%client, 'centerPrint', "move along bitsch no ores to be found here");
 					}
 					else
 						commandToClient(%client, 'centerPrint', "\c6You got 1 \c4" @ %this.getDatablock().uiName @ "\c6 from the rock!");
 						
 					CityRPGData.getData(%client.bl_id).value[%this.getDatablock().yields]++;
+					echo(%this.getDatablock().yields);
 				}
 				
 				if(%client.getJobSo().laborer)

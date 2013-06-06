@@ -5,12 +5,12 @@
 // Description        :  ScriptObjects heh
 // ============================================================
 
-if(!isObject(C3Wallet))
+if(!isObject(City3Wallet))
 {
-	new scriptObject(C3Wallet) {};
+	new scriptObject(City3Wallet) {};
 }
 
-function C3Wallet::add(%this,%obj,%arg)
+function City3Wallet::add(%this,%obj,%arg)
 {	
 	switch$(%obj)
 	{
@@ -22,7 +22,7 @@ function C3Wallet::add(%this,%obj,%arg)
 	%this.cashUpdated = 1;
 }
 
-function C3Wallet::subtract(%this,%client,%obj,%arg)
+function City3Wallet::subtract(%this,%client,%obj,%arg)
 {
 	switch$(%obj)
 	{
@@ -34,7 +34,7 @@ function C3Wallet::subtract(%this,%client,%obj,%arg)
 	%this.cashUpdated = 1;
 }
 
-function C3Wallet::trade(%this,%client,%target,%obj,%task,%arg)
+function City3Wallet::trade(%this,%client,%target,%obj,%task,%arg)
 {
 	switch$(%obj)
 	{
@@ -72,15 +72,15 @@ function C3Wallet::trade(%this,%client,%target,%obj,%task,%arg)
 	%this.cashUpdated = 1;
 }
 
-function C3Wallet::Create(%this,%client)
+function City3Wallet::Create(%this,%client)
 {
 	if(isObject(%client))
 	{
-		if(!isObject(%client.C3Wallet))
+		if(!isObject(%client.City3Wallet))
 		{
-			%client.C3SetAlias = 0;
+			%client.City3SetAlias = 0;
 			%this.client = %client;
-			%this.client.C3Wallet = %this;
+			%this.client.City3Wallet = %this;
 			if($City3::DebugMode)
 				messageClient(%client, '', "<color:ffffff>You now have a script object.");
 		}
@@ -91,14 +91,14 @@ function C3Wallet::Create(%this,%client)
 	return 0;
 }
 
-if(!isObject(C3Group))
+if(!isObject(City3Group))
 {
-	new scriptObject(C3Group) {};
+	new scriptObject(City3Group) {};
 }
 
-function C3Group::Create(%this,%client,%groupname,%type)
+function City3Group::Create(%this,%client,%groupname,%type)
 {
-	if(C3CheckGroupName(%groupname))
+	if(City3CheckGroupName(%groupname))
 	{
 		messageClient(%client, '', "\c2A group with that name already exists!");
 		return;
@@ -110,25 +110,25 @@ function C3Group::Create(%this,%client,%groupname,%type)
 	$City3::Groupnum += 1;
 	$City3::Groups[$City3::Groupnum] = %groupname;
 
-	%client.C3JoinGroup(%this);
+	%client.City3JoinGroup(%this);
 	%this.addmember(%client);
 	%this.admin = %client.name;
 
 	messageClient(%client, '', "\c2You have created the group " @ %groupname @ "!");
 }
-function C3Group::addmember(%this,%client)
+function City3Group::addmember(%this,%client)
 {
 	%this.membernum += 1;
 	%this.member[%this.membernum] = %client.name;
 }
-function C3Group::listmembers(%this,%client)
+function City3Group::listmembers(%this,%client)
 {
 	for(%i=0; %i < %this.membernum; %i++)
 	{
 		messageClient(%client, '', "\c2" @ %this.member[%i]);
 	}
 }
-function C3Group::getMembers(%this,%client)
+function City3Group::getMembers(%this,%client)
 {
 	for(%i=0; %i < %this.membernum; %i++)
 	{

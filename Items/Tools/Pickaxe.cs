@@ -142,13 +142,12 @@ function rpgPickaxeImage::onStopFire(%this, %obj, %slot)
 	%obj.playthread(2, root);
 }
 
-function rpgPickaxeProjectile::onCollision(%this,%obj,%col,%fade,%pos,%normal)
+function rpgPickaxeProjectile::onCollision(%this, %obj, %col, %fade, %pos, %normal)
 {
-	parent::onCollision(%this,%obj,%col,%fade,%pos,%normal);
 	if(%col.getClassName() $= "fxDTSBrick")
 	{
-		%brick = %col;
-		%client = %obj.client;
-		onMine(%client,%brick);
+		if(%col.Ore)
+			%col.OnMine(%obj.client);
 	}
+	parent::onCollision(%this, %obj, %col, %fade, %pos, %normal);
 }

@@ -84,7 +84,7 @@ if(!isObject(TazerItem))
 		armReady		= true;
 		
 		doColorShift		= false;
-		colorShiftColor		= "0 0 0 1";
+		colorShiftColor		= "0 3 5 1";
 
 		stateName[0]			= "Activate";
 		stateTimeoutValue[0]		= 0.1;

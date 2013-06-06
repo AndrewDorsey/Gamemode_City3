@@ -11,7 +11,7 @@
 
 exec("./Package.cs");
 exec("./ScriptObject.cs");
-exec("./Saving.cs");
+exec("./Saving.cs"); //I'll change it to Database.cs when someone explains how that shit works.
 exec("./Labor.cs");
 exec("./Common.cs");
 exec("./Time.cs");
@@ -42,10 +42,10 @@ exec("./Items/Tools/Tazer.cs");
 // Startup
 // =================================================================
 
-C3Startup();
+City3Startup();
 
 
-function C3GetLineCount(%doc)
+function City3GetLineCount(%doc)
 {
 	%lineCt = -1; //Start at line -1 so that the first line read is line 0.
 	%file = new fileObject();
@@ -62,7 +62,7 @@ function C3GetLineCount(%doc)
 	return %lineCt;
 }
 
-function C3GetSpecificLine(%doc,%line)
+function City3GetSpecificLine(%doc,%line)
 {
 	%lineCt = -1; //Start at line -1 so that the first line read is line 0.
 	%file = new fileObject();
@@ -83,28 +83,28 @@ function C3GetSpecificLine(%doc,%line)
 	return %contents;
 }
 
-function C3GetRandomAlias(%client)
+function City3GetRandomAlias(%client)
 {
-	%lineCtFirst = C3GetLineCount("Add-Ons/Gamemode_City3/Data/FirstNames.txt");
-	%lineCtLast = C3GetLineCount("Add-Ons/Gamemode_City3/Data/LastNames.txt");
+	%lineCtFirst = City3GetLineCount("Add-Ons/Gamemode_City3/Data/FirstNames.txt");
+	%lineCtLast = City3GetLineCount("Add-Ons/Gamemode_City3/Data/LastNames.txt");
 	%randomFirst = getRandom(0,%lineCtFirst);
 	%randomLast = getRandom(0,%lineCtLast);
-	%first = C3GetSpecificLine("Add-Ons/Gamemode_City3/Data/FirstNames.txt",%randomFirst);
-	%last = C3GetSpecificLine("Add-Ons/Gamemode_City3/Data/LastNames.txt",%randomLast);
-	%client.C3Alias_First = %first;
-	%client.C3Alias_Last = %last;
-	%client.C3SetAlias = 0;
+	%first = City3GetSpecificLine("Add-Ons/Gamemode_City3/Data/FirstNames.txt",%randomFirst);
+	%last = City3GetSpecificLine("Add-Ons/Gamemode_City3/Data/LastNames.txt",%randomLast);
+	%client.City3Alias_First = %first;
+	%client.City3Alias_Last = %last;
+	%client.City3SetAlias = 0;
 	if($City3::DebugMode)
-		echo("City3 Console: " @ %client.name @ "'s ALIAS is " @ %client.C3Alias_First @ " " @ %client.C3Alias_Last);
+		echo("City3 Console: " @ %client.name @ "'s ALIAS is " @ %client.City3Alias_First @ " " @ %client.City3Alias_Last);
 }
 
-function C3JoinGroup(%client,%group)
+function City3JoinGroup(%client,%group)
 {
-	%groupnum = %client.C3Groupnum + 1;
-	%client.C3Group[%groupnum] = %group;
+	%groupnum = %client.City3Groupnum + 1;
+	%client.City3Group[%groupnum] = %group;
 }
 
-function C3CheckGroupName(%groupname)
+function City3CheckGroupName(%groupname)
 {
 	for(%i=0; %i < $City3::Groupnum; %i++)
 	{

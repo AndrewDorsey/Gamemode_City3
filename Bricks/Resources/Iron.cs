@@ -5,7 +5,7 @@
 // Description: Iron ore
 // =================================================================
 
-datablock fxDTSBrickData (IronOreData : brick4x4CubeData)
+datablock fxDTSBrickData (IronOreData : brick4x4Data)
 {
 	category = "CityRPG";
 	subCategory = "Resources";

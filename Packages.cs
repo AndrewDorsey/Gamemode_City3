@@ -5,18 +5,18 @@
 // Description        :  Game overrides
 // ============================================================
 
-package C3Pack
+package City3Pack
 {
 	function GameConnection::autoAdminCheck(%client)
 	{
 		%v = Parent::autoAdminCheck(%client);
-		schedule(500,0,"commandToClient",%client,'C3_Handshake',$C3::Server::Version);
-		C3Wallet.create(%client);
-		C3GetRandomAlias(%client);
+		schedule(500,0,"commandToClient",%client,'City3_Handshake',$City3::Server::Version);
+		City3Wallet.create(%client);
+		City3GetRandomAlias(%client);
 		if($City3::DebugMode)
-			messageClient(%client, '', "Your temporary alias is " @ %client.C3Alias_First @ " " @ %client.C3Alias_Last);
+			messageClient(%client, '', "Your temporary alias is " @ %client.City3Alias_First @ " " @ %client.City3Alias_Last);
 
-		CityDB_loadUser(%this);
+		Jassy.loadData(%this);
 		%this.lvd = getDateTime();
 
 		return %v;
@@ -24,7 +24,7 @@ package C3Pack
 
 	function GameConnection::onClientLeaveGame(%this)
 	{
-		CityDB_saveUser(%this);
+		Jassy.SaveData();
 
 		parent::onClientLeaveGame(%this);
 	}
@@ -37,7 +37,7 @@ package C3Pack
 			{
 				if(isObject(%col))
 				{
-					%obj.client.c3wallet.add("cash",%col.value);
+					%obj.client.City3wallet.add("cash",%col.value);
 					messageClient(%obj.client, '', "\c6You have picked up" SPC CashStr(%col.value,"") @ "\c6.");
 					%col.canPickup = false;
 					%col.delete();
@@ -53,9 +53,9 @@ package C3Pack
 		}
 	}
 };
-activatepackage(C3Pack);
+activatepackage(City3Pack);
 
-function C3_returnHandshake(%client)
+function City3_returnHandshake(%client)
 {
-	%client.c3HasClient = 1;
+	%client.City3HasClient = 1;
 }

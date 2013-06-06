@@ -5,7 +5,7 @@
 // Description        :  Time system
 // ============================================================
 
-function C3GetTime(%value)
+function City3GetTime(%value)
 {
 	%realTime = getWord(getDateTime(),1);
 	%strippedTime = strreplace(%realTime,":"," ");
@@ -40,7 +40,7 @@ function syncEnvironmentTime()
 {
 	$Sky::dayCycleEnabled = 1;
 	$Sky::dayLength = 86400;
-	%hour = c3GetTime("Hour");
+	%hour = City3GetTime("Hour");
 	switch(%hour)
 	{
 		case 0:
@@ -93,7 +93,7 @@ function syncEnvironmentTime()
 			%time = 0.68;
 	}
 	%mintime = 0.001666666666666667;
-	%add = mceil((c3gettime(minute) / 10) * %mintime);
+	%add = mceil((City3gettime(minute) / 10) * %mintime);
 	%time = %time + %add;
 
 	setEnvironmentTime(%time);
@@ -105,7 +105,7 @@ function setEnvironmentTime(%time)
 }
 //Thanks for those above 2 functions, marble.
 
-function C3Tick(%value)
+function City3Tick(%value)
 {
 	cancel($City3::Tick);
 	if(%value)
@@ -114,8 +114,9 @@ function C3Tick(%value)
 		syncEnvironmentTime();
 		$City3::Ticking = 1;
 	}
-	$City3::Time = C3GetTime("strip");
-	$City3::Tick = schedule(1000, 0, C3Tick());
+	$City3::Time = City3GetTime("strip");
+	$City3::Tick = schedule(1000, 0, City3Tick());
 
 	//Insert everything that happens each tick here.
+	Jassy.SaveData();
 }

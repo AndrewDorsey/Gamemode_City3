@@ -54,16 +54,16 @@ package Deso_Chat
 	
 	function serverCmdDesoChat(%client)
 	{
-		messageClient(%client,'',"<font:arial bold:15>\c3There are two primary chat types, \c0Local Chat(NormalChat) \c3and \c2Global/OOC Chat(TeamChat)\c3.");
-		messageClient(%client,'',"<font:arial bold:15>\c3There are also secondary chat types, add one of the following as a prefix to use them.");
-		messageClient(%client,'',"<font:arial bold:14>\c1*Yell \c3- A wider ranged chat.");
-		messageClient(%client,'',"<font:arial bold:14>\c1*Me \c3- Show an action.");
-		messageClient(%client,'',"<font:arial bold:14>\c1*Whis \c3- Whispers to everyone in a small area.");
-		messageClient(%client,'',"<font:arial bold:14>\c1*PM PlayerName/ID \c3- Send a private message to a player.");
-		messageClient(%client,'',"<font:arial bold:14>\c1*Anon \c3- Send a anonymous message to everyone in the area.");
+		messageClient(%client,'',"<font:arial bold:15>\City3There are two primary chat types, \c0Local Chat(NormalChat) \City3and \c2Global/OOC Chat(TeamChat)\City3.");
+		messageClient(%client,'',"<font:arial bold:15>\City3There are also secondary chat types, add one of the following as a prefix to use them.");
+		messageClient(%client,'',"<font:arial bold:14>\c1*Yell \City3- A wider ranged chat.");
+		messageClient(%client,'',"<font:arial bold:14>\c1*Me \City3- Show an action.");
+		messageClient(%client,'',"<font:arial bold:14>\c1*Whis \City3- Whispers to everyone in a small area.");
+		messageClient(%client,'',"<font:arial bold:14>\c1*PM PlayerName/ID \City3- Send a private message to a player.");
+		messageClient(%client,'',"<font:arial bold:14>\c1*Anon \City3- Send a anonymous message to everyone in the area.");
 		if(%client.isadmin)
 		{
-			messageClient(%client,'',"<font:arial bold:14>\c1*Adm \c3- Send a message to all admins.");
+			messageClient(%client,'',"<font:arial bold:14>\c1*Adm \City3- Send a message to all admins.");
 		}
 		messageClient(%client,'',"<font:arial bold:13>\c6Press \c1(Page-Up) \c6to view the rest of the list.");
 	}
@@ -88,7 +88,7 @@ package Deso_Chat
 			if(%client.DChatTalked == 1)
 			{
 				%client.AntiSpamCaught = 1;
-				messageClient(%client,'',"\c5Don't spam. Wait \c3" @ $Deso::RoleplayChat::SpamTime * 0.001@ " \c5second(s) before talking again.");
+				messageClient(%client,'',"\c5Don't spam. Wait \City3" @ $Deso::RoleplayChat::SpamTime * 0.001@ " \c5second(s) before talking again.");
 				return;
 			}
 			%client.DChatTalked = 1;			
@@ -116,16 +116,16 @@ package Deso_Chat
 				{
 					if(%client.IsSuperAdmin)
 					{
-						messageAll('',"\c7[\c2OOC\c7] <bitmap:" @ $Deso::RoleplayChat::SuperAdminIcon @ ">\c3" @ %client.Name @ "\c7: \c6" @ %msg);
+						messageAll('',"\c7[\c2OOC\c7] <bitmap:" @ $Deso::RoleplayChat::SuperAdminIcon @ ">\City3" @ %client.Name @ "\c7: \c6" @ %msg);
 					}
 					else
 					{
-						messageAll('',"\c7[\c2OOC\c7] <bitmap:" @ $Deso::RoleplayChat::AdminIcon @ ">\c3" @ %client.Name @ "\c7: \c6" @ %msg);
+						messageAll('',"\c7[\c2OOC\c7] <bitmap:" @ $Deso::RoleplayChat::AdminIcon @ ">\City3" @ %client.Name @ "\c7: \c6" @ %msg);
 					}
 				}
 				else
 				{
-					messageAll('',"\c7[\c2OOC\c7] \c3" @ %client.Name @ "\c7: \c6" @ %msg);
+					messageAll('',"\c7[\c2OOC\c7] \City3" @ %client.Name @ "\c7: \c6" @ %msg);
 				}
 				%client.LastDChatMessage = %msg;
 				Deso_Log(%client,"CHAT: " @ %client.Name SPC " said: " @ %msg);
@@ -165,16 +165,16 @@ package Deso_Chat
 				{
 					if(%client.IsSuperAdmin)
 					{
-						messageClient(%clients,'',"\c7[\c1Local\c7] <bitmap:" @ $Deso::RoleplayChat::SuperAdminIcon @ ">\c3" @ %client.Name @ "\c7: \c6" @ %msg);
+						messageClient(%clients,'',"\c7[\c1Local\c7] <bitmap:" @ $Deso::RoleplayChat::SuperAdminIcon @ ">\City3" @ %client.Name @ "\c7: \c6" @ %msg);
 					}
 					else
 					{
-						messageClient(%clients,'',"\c7[\c1Local\c7] <bitmap:" @ $Deso::RoleplayChat::AdminIcon @ ">\c3" @ %client.Name @ "\c7: \c6" @ %msg);
+						messageClient(%clients,'',"\c7[\c1Local\c7] <bitmap:" @ $Deso::RoleplayChat::AdminIcon @ ">\City3" @ %client.Name @ "\c7: \c6" @ %msg);
 					}
 				}
 				else
 				{
-					messageClient(%clients,'',"\c7[\c1Local\c7] \c3" @ %client.Name @ "\c7: \c6" @ %msg);
+					messageClient(%clients,'',"\c7[\c1Local\c7] \City3" @ %client.Name @ "\c7: \c6" @ %msg);
 				}
 			}
 			%client.LastDChatMessage = %msg;
@@ -205,7 +205,7 @@ package Deso_Chat
 
 					if(%who $= "" || %who == 0)
 					{
-						messageClient(%client,'',"\c3Sorry, \c1" @ getWord(%msg,1) @ " \c3is not a valid player.");
+						messageClient(%client,'',"\City3Sorry, \c1" @ getWord(%msg,1) @ " \City3is not a valid player.");
 						return;
 					}
 					if(%who == %client){return;}
@@ -218,26 +218,26 @@ package Deso_Chat
 						{
 							if(%client.IsSuperAdmin)
 							{
-								messageClient(%client,'',"\c7[PM] <bitmap:" @ $Deso::RoleplayChat::SuperAdminIcon @ ">\c3" @ %client.Name @ "\c7: \c6" @ %msg);
-								messageClient(%who,'',"\c7[PM] <bitmap:" @ $Deso::RoleplayChat::SuperAdminIcon @ ">\c3" @ %client.Name @ "\c7:\c6" @ %msg4,"");
+								messageClient(%client,'',"\c7[PM] <bitmap:" @ $Deso::RoleplayChat::SuperAdminIcon @ ">\City3" @ %client.Name @ "\c7: \c6" @ %msg);
+								messageClient(%who,'',"\c7[PM] <bitmap:" @ $Deso::RoleplayChat::SuperAdminIcon @ ">\City3" @ %client.Name @ "\c7:\c6" @ %msg4,"");
 							}
 							else
 							{
-								messageClient(%client,'',"\c7[PM] <bitmap:" @ $Deso::RoleplayChat::AdminIcon @ ">\c3" @ %client.Name @ "\c7: \c6" @ %msg);
-								messageClient(%who,'',"\c7[PM] <bitmap:" @ $Deso::RoleplayChat::AdminIcon @ ">\c3" @ %client.Name @ "\c7:\c6" @ %msg4,"");
+								messageClient(%client,'',"\c7[PM] <bitmap:" @ $Deso::RoleplayChat::AdminIcon @ ">\City3" @ %client.Name @ "\c7: \c6" @ %msg);
+								messageClient(%who,'',"\c7[PM] <bitmap:" @ $Deso::RoleplayChat::AdminIcon @ ">\City3" @ %client.Name @ "\c7:\c6" @ %msg4,"");
 							}
 						}
 						else
 						{
-							messageClient(%client,'',"\c7[PM] \c3" @ %client.Name @ "\c7:\c6" @ %msg4,"");
-							messageClient(%who,'',"\c7[PM] \c3" @ %client.Name @ "\c7:\c6" @ %msg4,"");
+							messageClient(%client,'',"\c7[PM] \City3" @ %client.Name @ "\c7:\c6" @ %msg4,"");
+							messageClient(%who,'',"\c7[PM] \City3" @ %client.Name @ "\c7:\c6" @ %msg4,"");
 						}
 						%client.LastDChatMessage = %msg4;
 					}
 				}
 				else
 				{
-					messageClient(%client,'',"\c3Sorry, \c1PM \c3chat is \c0OFF\c3.");
+					messageClient(%client,'',"\City3Sorry, \c1PM \City3chat is \c0OFF\City3.");
 				}
 				return;
 			}
@@ -252,20 +252,20 @@ package Deso_Chat
 							%cl = clientgroup.getObject(%i);
 							if(%cl.isadmin)
 							{
-								messageClient(%cl,'',"\c7[\c1Admin\c7] \c3" @ %client.Name @ "\c7:\c6" @ strReplace(%msg,getWord(%msg,0),""));
+								messageClient(%cl,'',"\c7[\c1Admin\c7] \City3" @ %client.Name @ "\c7:\c6" @ strReplace(%msg,getWord(%msg,0),""));
 								Deso_Log(%client,"ADMINCHAT: " @ %client.Name SPC " said: " @ %msg);
 							}
 						}
 					}
 					else
 					{
-						messageClient(%client,'',"\c3Sorry, you're not an Admin.");
+						messageClient(%client,'',"\City3Sorry, you're not an Admin.");
 					}
 					return;
 				}
 				else
 				{
-					messageClient(%client,'',"\c3Sorry, \c1Admin \c3chat is \c0OFF\c3.");
+					messageClient(%client,'',"\City3Sorry, \c1Admin \City3chat is \c0OFF\City3.");
 				}
 			}
 			if(!isObject(%client.player))
@@ -274,16 +274,16 @@ package Deso_Chat
 				{
 					if(%client.IsSuperAdmin)
 					{
-						messageAll('',"\c7[\c2OOC\c7] <bitmap:" @ $Deso::RoleplayChat::SuperAdminIcon @ ">\c3" @ %client.Name @ "\c7: \c6" @ %msg);
+						messageAll('',"\c7[\c2OOC\c7] <bitmap:" @ $Deso::RoleplayChat::SuperAdminIcon @ ">\City3" @ %client.Name @ "\c7: \c6" @ %msg);
 					}
 					else
 					{
-						messageAll('',"\c7[\c2OOC\c7] <bitmap:" @ $Deso::RoleplayChat::AdminIcon @ ">\c3" @ %client.Name @ "\c7: \c6" @ %msg);
+						messageAll('',"\c7[\c2OOC\c7] <bitmap:" @ $Deso::RoleplayChat::AdminIcon @ ">\City3" @ %client.Name @ "\c7: \c6" @ %msg);
 					}
 				}
 				else
 				{
-					messageAll('',"\c7[\c2OOC\c7] \c3" @ %client.Name @ "\c7: \c6" @ %msg);
+					messageAll('',"\c7[\c2OOC\c7] \City3" @ %client.Name @ "\c7: \c6" @ %msg);
 				}
 				%client.LastDChatMessage = %msg;
 				Deso_Log(%client,"OOC: " @ %client.Name SPC " said: " @ %msg);
@@ -305,7 +305,7 @@ package Deso_Chat
 				}
 				else
 				{
-					messageClient(%client,'',"\c3Sorry, \c1Me \c3chat is \c0OFF\c3.");
+					messageClient(%client,'',"\City3Sorry, \c1Me \City3chat is \c0OFF\City3.");
 				}
 			}
 			if(getWord(%msg,0) $= "*Whis")
@@ -316,7 +316,7 @@ package Deso_Chat
 					while((%targetobject=containerSearchNext()) !$= 0)
 					{
 						%clients=%targetobject.client;
-						messageclient(%clients,'',"\c7[\c5Whisper\c7] \c3" @ %client.Name @ "\c7:\c6" @ strReplace(%msg,getWord(%msg,0),""));
+						messageclient(%clients,'',"\c7[\c5Whisper\c7] \City3" @ %client.Name @ "\c7:\c6" @ strReplace(%msg,getWord(%msg,0),""));
 					}
 					%client.LastDChatMessage = %msg;
 					Deso_Log(%client,"WHIS: " @ %client.Name SPC " said: " @ %msg);
@@ -324,7 +324,7 @@ package Deso_Chat
 				}
 				else
 				{
-					messageClient(%client,'',"\c3Sorry, \c1Whisper \c3chat is \c0OFF\c3.");
+					messageClient(%client,'',"\City3Sorry, \c1Whisper \City3chat is \c0OFF\City3.");
 				}
 			}
 			if(getWord(%msg,0) $= "*Anon")
@@ -337,7 +337,7 @@ package Deso_Chat
 						%clients=%targetobject.client;
 						if(%clients.isadmin)
 						{
-							messageclient(%clients,'',"\c7[\c5Anonymous\c7] \c3" @ %client.name @ "\c7: \c6" @ strReplace(%msg,getWord(%msg,0),""));
+							messageclient(%clients,'',"\c7[\c5Anonymous\c7] \City3" @ %client.name @ "\c7: \c6" @ strReplace(%msg,getWord(%msg,0),""));
 						}
 						else
 						{
@@ -351,7 +351,7 @@ package Deso_Chat
 				}
 				else
 				{
-					messageClient(%client,'',"\c3Sorry, \c1Anonymous \c3chat is \c0OFF\c3.");
+					messageClient(%client,'',"\City3Sorry, \c1Anonymous \City3chat is \c0OFF\City3.");
 				}
 			}
 			if(getWord(%msg,0) $= "*Yell")
@@ -367,16 +367,16 @@ package Deso_Chat
 						{
 							if(%client.IsSuperAdmin)
 							{
-								messageClient(%clients,'',"\c7[\c0Yell\c7] <bitmap:" @ $Deso::RoleplayChat::SuperAdminIcon @ ">\c3" @ %client.Name @ "\c7:\c6" @ %msg);
+								messageClient(%clients,'',"\c7[\c0Yell\c7] <bitmap:" @ $Deso::RoleplayChat::SuperAdminIcon @ ">\City3" @ %client.Name @ "\c7:\c6" @ %msg);
 							}
 							else
 							{
-								messageClient(%clients,'',"\c7[\c0Yell\c7] <bitmap:" @ $Deso::RoleplayChat::AdminIcon @ ">\c3" @ %client.Name @ "\c7:\c6" @ %msg);
+								messageClient(%clients,'',"\c7[\c0Yell\c7] <bitmap:" @ $Deso::RoleplayChat::AdminIcon @ ">\City3" @ %client.Name @ "\c7:\c6" @ %msg);
 							}
 						}
 						else
 						{
-							messageClient(%clients,'',"\c7[\c0Yell\c7] \c3" @ %client.Name @ "\c7:\c6" @ %msg);
+							messageClient(%clients,'',"\c7[\c0Yell\c7] \City3" @ %client.Name @ "\c7:\c6" @ %msg);
 						}
 					}
 					%client.LastDChatMessage = %msg;
@@ -384,7 +384,7 @@ package Deso_Chat
 				}
 				else
 				{
-					messageClient(%client,'',"\c3Sorry, \c1Yell \c3chat is \c0OFF\c3.");
+					messageClient(%client,'',"\City3Sorry, \c1Yell \City3chat is \c0OFF\City3.");
 				}
 			}
 		}

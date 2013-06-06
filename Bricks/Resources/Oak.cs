@@ -12,9 +12,9 @@ datablock fxDTSBrickData (OakTreeData : brickPineTreeData)
 	
 	uiName = "Oak Tree";
 	
-	TreeType = 1;
+	treeType = 1;
 	isTree = 1;
-	Wood = "32";
+	wood = "32";
 	disappearLen = 60;
 	
 	brickType = "Resource";

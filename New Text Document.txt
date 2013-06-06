@@ -1,0 +1,46 @@
+function fxDTSBrick::onMine(%this, %client)
+{
+	if(%this.hasOre)
+	{
+		%this.resources = %this.getDatablock().resources;
+		if(%this.resources > 0)
+		{
+			%this.hasOre = true;
+			if(getRandom(1, 100) > (90 - mFloor((CityRPGData.getData(%client.bl_id).valueEducation / 6) * 4)))
+			{
+				%this.resources--;
+				
+				if(getRandom(1, 100) > 100 -CityRPGData.getData(%client.bl_id).valueEducation)
+					%gemstone = true;
+					
+				if(%gemstone)
+				{
+					%value = getRandom(5, 100);
+					commandToClient(%client, 'centerPrint', "\c3Gemstone obtained.", 1);
+					messageClient(%client, '', "\c6You extracted a gem from the rock worth \c3$" @ %value @ "\c6.");
+					CityRPGData.getData(%client.bli_id).valueMoney += %value;
+				}
+				else
+				{
+					%plevel = CityRPGData.getData(%client.bl_id).valuePickaxe;
+					%preq = %this.getDatablock().pickReq;
+					if(%plevel < %preq)
+						commandToClient(%client, 'centerPrint', "\c1You need a pick level of \c4" @ %preq @ "\c1to mine this, bitch.");
+					else if(!%this.resources)
+					{
+						commandToClient(%client, 'centerPrint', "This rock has no more fucking ore left.");
+					}
+					else
+						commandToClient(%client, 'centerPrint', "\c6You got 1 \c4" @ %this.getDatablock().uiName @ "\c6 from the rock!");
+						
+					CityRPGData.getData(%client.bl_id).value(%this.getDatablock().yields)++;
+				}
+				
+				if(%client.getJobSo().laborer)
+					CityRPGData.getData(%client.bl_id).valueJobEXP++;
+					
+				%client.setInfo();
+			}
+		}
+	}
+}

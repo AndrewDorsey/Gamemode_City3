@@ -26,7 +26,7 @@ function fxDTSBrick::onMine(%this, %client)
                 {
                         %value = getRandom(5, 50);
                         commandToClient(%client, 'centerPrint', "\c1Gemstone obtained.", 1);
-                        messageClient(%client, '', "\c6You extracted a gem from the rock worth \c3$" @ %value @ "\c6.");
+                        messageClient(%client, '', "\c6You extracted a gem from the rock worth \City3$" @ %value @ "\c6.");
                         %client.CityRPGData.value["Money"] += %value;
                         %client.CityRPGData.value["JobEXP"] += 0.1;
                         %client.CityRPGData.value["MiningExp"] += 0.1;
@@ -74,7 +74,7 @@ function fxDTSBrick::onMine(%this, %client)
             {
                     %value = getRandom(5, 100);
                     commandToClient(%client, 'centerPrint', "\c1Gemstone obtained.", 1);
-                    messageClient(%client, '', "\c6You extracted a gem from the rock worth \c3$" @ %value @ "\c6.");
+                    messageClient(%client, '', "\c6You extracted a gem from the rock worth \City3$" @ %value @ "\c6.");
                     %client.CityRPGData.value["Money"] += %value;
                     %client.CityRPGData.value["JobEXP"] += 0.2;
                     %client.CityRPGData.value["MiningExp"] += 0.2;
@@ -122,7 +122,7 @@ function fxDTSBrick::onMine(%this, %client)
             {
                     %value = getRandom(5, 200);
                     commandToClient(%client, 'centerPrint', "\c1Gemstone obtained.", 1);
-                    messageClient(%client, '', "\c6You extracted a gem from the rock worth \c3$" @ %value @ "\c6.");
+                    messageClient(%client, '', "\c6You extracted a gem from the rock worth \City3$" @ %value @ "\c6.");
                     %client.CityRPGData.value["Money"] += %value;
                     %client.CityRPGData.value["JobEXP"] += 0.3;
                     %client.CityRPGData.value["MiningExp"] += 0.3;

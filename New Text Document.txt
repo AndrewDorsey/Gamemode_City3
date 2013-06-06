@@ -33,7 +33,7 @@ function fxDTSBrick::onMine(%this, %client)
 					else
 						commandToClient(%client, 'centerPrint', "\c6You got 1 \c4" @ %this.getDatablock().uiName @ "\c6 from the rock!");
 						
-					CityRPGData.getData(%client.bl_id).value(%this.getDatablock().yields)++;
+					CityRPGData.getData(%client.bl_id).value[%this.getDatablock().yields]++;
 				}
 				
 				if(%client.getJobSo().laborer)
